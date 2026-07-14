@@ -17,9 +17,163 @@
           "ioValue": "__GEOMETRY_INPUT__"
         }
       ]
+    },
+    {
+      "atomType": "Import",
+      "x": 0.11848958333333333,
+      "y": 0.3630952380952381,
+      "uniqueID": "id-4",
+      "fileName": "2380T61_Silent-Roll Swivel Caster.STEP",
+      "name": "Import",
+      "type": "STEP",
+      "repoOwner": "tristan-huber",
+      "repoName": "SculptureStand",
+      "SVGwidth": 10
+    },
+    {
+      "atomType": "Rotate",
+      "x": 0.21744791666666669,
+      "y": 0.3005952380952381,
+      "uniqueID": "id-6",
+      "ioValues": [
+        {
+          "name": "geometry",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "x-axis degrees",
+          "ioValue": 90,
+          "currentEquation": "90"
+        },
+        {
+          "name": "y-axis degrees",
+          "ioValue": 0
+        },
+        {
+          "name": "z-axis degrees",
+          "ioValue": 0
+        }
+      ]
+    },
+    {
+      "atomType": "GitHubMolecule",
+      "x": 0.35546875,
+      "y": 0.3333333333333333,
+      "uniqueID": "id-17",
+      "name": "Scale",
+      "ioValues": [
+        {
+          "name": "Scale Factor",
+          "ioValue": 0.04081632653061224,
+          "currentEquation": "1/24.5"
+        }
+      ],
+      "topLevel": false,
+      "allAtoms": [
+        {
+          "atomType": "Output",
+          "x": 0.98,
+          "y": 0.5,
+          "uniqueID": "id-13",
+          "ioValues": [
+            {
+              "name": "number or geometry",
+              "ioValue": "__GEOMETRY_INPUT__"
+            }
+          ]
+        },
+        {
+          "atomType": "Input",
+          "x": 0.0231,
+          "y": 0.14,
+          "uniqueID": "id-14",
+          "name": "Geometry",
+          "type": "number"
+        },
+        {
+          "atomType": "Input",
+          "x": 0.0231,
+          "y": 0.22400000000000003,
+          "uniqueID": "id-15",
+          "name": "Scale Factor",
+          "type": "number"
+        },
+        {
+          "atomType": "Code",
+          "x": 0.4226190476190476,
+          "y": 0.25139664804469275,
+          "uniqueID": "id-16",
+          "ioValues": [
+            {
+              "name": "inputShape",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "scaleFactor",
+              "ioValue": "__GEOMETRY_INPUT__"
+            }
+          ],
+          "interpreterVersion": 0,
+          "code": " \n      //Inputs:[inputShape, scaleFactor]\n      //This defines the molecules inputs and creates variables with the same names which can be referenced in the code\n      \n      //Takes the address and gets the shape from the library\n      let importedShape = library[inputShape]\n\n      let scaledShape = await Scale(inputShape, scaleFactor);\n      \n      \n      //Shapes stored in the library have tags, a color, a plane, and a bill of materials like this. We don't modify them here\n      let shape1 = {\n        geometry: [scaledShape],\n        tags: importedShape.tags,\n        color: importedShape.color,\n        plane: importedShape.plane,\n        bom: importedShape.bom\n      }\n      \n      return shape1\n      \n      \n      \n          /**\n          To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n          If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n          Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n          https://replicad.xyz/docs/introapp/UserGuide.html \n          Return a replicad object that includes geometry, color, tags and plane. \n      \n      \n          Example Code Atom:\n      \n            Inputs:[shape, x];\n      \n            let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n      \n            return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n      \n            - See more examples at _______ \n      \n      \n          */\n      "
+        }
+      ],
+      "allConnectors": [
+        {
+          "ap2Name": "inputShape",
+          "ap1ID": "id-14",
+          "ap2ID": "id-16"
+        },
+        {
+          "ap2Name": "scaleFactor",
+          "ap1ID": "id-15",
+          "ap2ID": "id-16"
+        },
+        {
+          "ap2Name": "number or geometry",
+          "ap1ID": "id-16",
+          "ap2ID": "id-13"
+        }
+      ],
+      "parentRepo": {
+        "lastFoundGit": "2026-07-14T02:23:39.155Z",
+        "privateRepo": false,
+        "repoName": "Scale",
+        "dateCreated": "2025-06-26T17:06:11Z",
+        "likes": 0,
+        "readMe": "https://raw.githubusercontent.com/BarbourSmith/Scale/master/README.md?sanitize=true",
+        "yyyy": 2025,
+        "topMoleculeID": "4b6bc40a-44a9-438a-9ed9-ba4910815d8d",
+        "githubMoleculesUsed": [],
+        "html_url": "https://github.com/BarbourSmith/Scale",
+        "topics": [],
+        "parentRepo": null,
+        "forks": 1,
+        "dateModified": "739428",
+        "ranking": 6.8,
+        "searchField": "scale barboursmith scales the input 2d or 3d geometry by the scale factor ",
+        "owner": "BarbourSmith",
+        "description": "Scales the input 2D or 3D geometry by the scale factor",
+        "contentURL": "https://raw.githubusercontent.com/BarbourSmith/Scale/master/project.abundance?sanitize=true",
+        "svgURL": "https://raw.githubusercontent.com/BarbourSmith/Scale/master/project.svg?sanitize=true",
+        "isLocal": false
+      },
+      "unitsKey": "Unitless",
+      "fileTypeVersion": 1,
+      "lastReloadedFromGithubAt": 1784005398521
     }
   ],
-  "allConnectors": [],
+  "allConnectors": [
+    {
+      "ap2Name": "geometry",
+      "ap1ID": "id-4",
+      "ap2ID": "id-6"
+    },
+    {
+      "ap2Name": "Geometry",
+      "ap1ID": "id-6",
+      "ap2ID": "id-17"
+    }
+  ],
   "unitsKey": "Inches",
   "fileTypeVersion": 1,
   "filetypeVersion": 1
